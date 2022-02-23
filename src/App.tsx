@@ -3,13 +3,13 @@ import { useQuery } from "react-query";
 //Components
 import Item from "./Item/item";
 import Cart from "./Cart/Cart";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import Drawer from "@material-ui/core/Drawer";
-import LinearProgress from "@material-ui/core/LinearProgress";
 import Grid from "@material-ui/core/Grid";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import Badge from "@material-ui/core/Badge";
 //styles
-import { Wrapper, StyledButton } from "./App.styles";
+import { Wrapper, StyledButton, ProgressDiv } from "./App.styles";
 //Types
 export type CartItemType = {
   id: number;
@@ -65,7 +65,11 @@ const App = () => {
       ))
     };
 
-    if (isLoading) return <LinearProgress />;
+    const handleCloseCart = () => {
+      setCartOpen(false);
+    }
+    
+    if (isLoading) return <ProgressDiv><CircularProgress /></ProgressDiv>;
     if (error) return <div>Something went wrong</div>
 
   return (
@@ -75,6 +79,7 @@ const App = () => {
         cartItems={cartItems} 
         addToCart={handleAddToCart} 
         removeFromCart={handleRemoveFromCart} 
+        closeCart={handleCloseCart}
         />
       </Drawer>
       <StyledButton onClick={() => setCartOpen(true)}>
