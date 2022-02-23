@@ -49,12 +49,22 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const  AddRemoveButton = styled(Button)`
+export const  AddButton = styled(Button)`
     padding: 0 !important;
     min-width: 30px !important;
     height: 30px;
     justify-content: center;
+    border: 1px solid lightgrey !important;
+    border-radius: 0px 5px 5px 0px !important;
+`;
 
+export const  RemoveButton = styled(Button)`
+    padding: 0 !important;
+    min-width: 30px !important;
+    height: 30px;
+    justify-content: center;
+    border: 1px solid lightgrey !important;
+    border-radius: 5px 0px 0px 5px !important;
 `;
 
 export const  StyledRemoveIcon = styled(RemoveIcon)`

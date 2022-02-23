@@ -2,7 +2,7 @@ import Button from "@material-ui/core/Button";
 //Types
 import { CartItemType } from "../App";
 //Styles
-import { Wrapper, AddRemoveButton, StyledAddIcon, StyledRemoveIcon } from "./CartItem.styles";
+import { Wrapper, AddButton, RemoveButton, StyledAddIcon, StyledRemoveIcon } from "./CartItem.styles";
 
 type Props = {
     item: CartItemType;
@@ -19,21 +19,21 @@ const CartItem: React.FC<Props> = ({ item, addToCart, removeFromCart}) => (
                 <p>SubTotal: ${(item.amount * item.price).toFixed(2)}</p>
             </div>
             <div className="buttons">
-                <AddRemoveButton
-                    variant="contained"
+                <RemoveButton
+                    variant="text"
                     disableElevation
                     onClick={() => removeFromCart(item.id)}
                 >
                     <StyledRemoveIcon/>
-                </AddRemoveButton>
+                </RemoveButton>
                 <div className="amount"><p>{item.amount}</p></div>
-                <AddRemoveButton
-                    variant="contained"
+                <AddButton
+                    variant="text"
                     disableElevation
                     onClick={() => addToCart(item)}
                 >
                     <StyledAddIcon/>
-                </AddRemoveButton>
+                </AddButton>
             </div>
         </div>
         <img src={item.image} alt={item.title} />

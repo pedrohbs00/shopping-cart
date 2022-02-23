@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "@material-ui/core/Button";
 
 
 export const Wrapper = styled.aside`
@@ -19,4 +20,24 @@ export const Wrapper = styled.aside`
         display: flex;
         justify-content: flex-end;
     }
+
+    .finishbutton {
+        display: flex;
+        //justify-content: center;
+        margin-top: 5px;
+    }
+`;
+
+export const FinishShopButton = styled(Button)`
+    background-color: black !important;
+    width: 100%;
+    
+    
+    p {
+        text-transform: initial !important;
+        margin: 5px 2px 5px 2px;
+        color: white;
+        font-weight: bold;
+    }
+
 `;
