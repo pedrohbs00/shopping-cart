@@ -6,7 +6,7 @@ type CheckoutDivProps = {
 }
 
 export const Wrapper = styled.div`
-    margin: 40px; 
+    margin: 40px;
 `;
 
 export const StyledButton = styled(IconButton)`
@@ -25,13 +25,37 @@ export const ProgressDiv = styled.div`
 `;
 
 export const CheckoutDiv = styled.div<CheckoutDivProps>`
-    display: ${props => props.finish ? "block" : "none"} !important;
-    position: fixed;
-    background-color: red;
-    display: flex;
-    margin: auto;
-    align-items:center;
-    justify-content:center;
-    width: 200px;
-    height: 200px;
+    display: ${props => props.finish ? "flex" : "none"} !important;
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    .AlertBackground {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        position: relative;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Alert {
+        display: flex;
+        width: 275px;
+        height: 275px;
+        border-radius: 10px;
+        background-color: black;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    p {
+        color: white;
+        font-weight: bold;
+        font-size: 30px;
+        font-family: 'Montserrat', sans-serif;
+    }
 `;

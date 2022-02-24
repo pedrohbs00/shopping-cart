@@ -92,7 +92,13 @@ const App = () => {
 
   return (
     <>
-      <CheckoutDiv finish={finishCheckout}></CheckoutDiv>
+      <CheckoutDiv finish={finishCheckout}>
+        <div className="AlertBackground">
+          <div className="Alert">
+            <p>Thank You For Testing!</p>
+          </div>
+        </div>
+      </CheckoutDiv>
       <Wrapper>
         <Drawer
           anchor="right"
