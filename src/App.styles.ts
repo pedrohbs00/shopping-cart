@@ -7,13 +7,26 @@ type CheckoutDivProps = {
 
 export const Wrapper = styled.div`
     margin: 40px;
+
+    .ProductsTitle {
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+    }
+
+    .ProductsTitle h2 {
+        font-size: 30px;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;;
+    }
+
 `;
 
 export const StyledButton = styled(IconButton)`
     position: fixed !important ;
     z-index: 100;
     right: 20px;
-    top: 20px;
+    top: 15%;
 `;
 
 export const ProgressDiv = styled.div`
@@ -57,5 +70,35 @@ export const CheckoutDiv = styled.div<CheckoutDivProps>`
         font-weight: bold;
         font-size: 30px;
         font-family: 'Montserrat', sans-serif;
+    }
+`;
+
+export const Navbar = styled.div`
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    padding: 0 40px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    h2 {
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+    }
+
+    li {
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        list-style: none;
+        
     }
 `;

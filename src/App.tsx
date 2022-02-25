@@ -9,7 +9,13 @@ import Grid from "@material-ui/core/Grid";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import Badge from "@material-ui/core/Badge";
 //styles
-import { Wrapper, StyledButton, ProgressDiv, CheckoutDiv } from "./App.styles";
+import {
+  Wrapper,
+  StyledButton,
+  ProgressDiv,
+  CheckoutDiv,
+  Navbar,
+} from "./App.styles";
 //Types
 export type CartItemType = {
   id: number;
@@ -99,6 +105,17 @@ const App = () => {
           </div>
         </div>
       </CheckoutDiv>
+      <Navbar>
+        <div>
+          <h2>TypeScript Store</h2>
+        </div>
+        <div>
+          <ul>
+            <li>Home</li>
+            <li>Cart</li>
+          </ul>
+        </div>
+      </Navbar>
       <Wrapper>
         <Drawer
           anchor="right"
@@ -118,6 +135,9 @@ const App = () => {
             <AddShoppingCartIcon />
           </Badge>
         </StyledButton>
+        <div className="ProductsTitle">
+          <h2>Products</h2>
+        </div>
         <Grid container spacing={3}>
           {data?.map((item) => (
             <Grid item key={item.id} xs={12} sm={4}>

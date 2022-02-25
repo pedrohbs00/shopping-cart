@@ -6,14 +6,32 @@ export const Wrapper = styled.aside`
     font-family: Arial, Helvetica, sans-serif;
     width: 500px;
     padding: 20px;
-
+    height: 100vh;
+    flex-direction: column;
+    display: flex;
+    
     .cartTitle {
         display: flex;
         justify-content: space-between;
     }
 
-    p {
+    .cartTitle h2 {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .NoItems {
+        margin: auto;
         text-align: center;
+    }
+
+    .NoItems p {
+        color: rgba(0, 0, 0, 0.26);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+    }
+
+    .CartFooter {
+        margin-top: auto;
     }
 
     .total {
@@ -23,8 +41,8 @@ export const Wrapper = styled.aside`
 
     .finishbutton {
         display: flex;
-        //justify-content: center;
         margin-top: 5px;
+        margin-bottom: 10px;
     }
 `;
 

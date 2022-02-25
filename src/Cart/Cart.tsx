@@ -1,6 +1,7 @@
 import CartItem from "../CartItem/CartItem";
 import CloseIcon from "@material-ui/icons/Close";
 import Button from "@material-ui/core/Button";
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 //styles
 import { Wrapper, FinishShopButton } from "./Cart.styles";
 //Types
@@ -38,7 +39,12 @@ const Cart: React.FC<Props> = ({
           <CloseIcon />
         </Button>
       </div>
-      {cartItems.length === 0 ? <p>No Items in Cart</p> : null}
+      {cartItems.length === 0 ? (
+        <div className="NoItems">
+          <ShoppingCartOutlinedIcon fontSize="large" color="disabled" />
+          <p>No Items in Cart</p>
+        </div>
+      ) : null}
       {cartItems.map((item) => (
         <CartItem
           key={item.id}
@@ -47,16 +53,18 @@ const Cart: React.FC<Props> = ({
           removeFromCart={removeFromCart}
         />
       ))}
-      <div className="total">
-        <h2>Total: ${calculateTotal(cartItems).toFixed(2)}</h2>
-      </div>
-      <div className="finishbutton">
-        {cartItems.length != 0 ? (
-          <FinishShopButton onClick={checkoutDone}>
-            <p>Checkout</p>
-          </FinishShopButton>
-        ) : null}
-      </div>
+      {cartItems.length != 0 ? (
+        <footer className="CartFooter">
+          <div className="total">
+            <h2>Total: ${calculateTotal(cartItems).toFixed(2)}</h2>
+          </div>
+          <div className="finishbutton">
+            <FinishShopButton onClick={checkoutDone}>
+              <p>Checkout</p>
+            </FinishShopButton>
+          </div>
+        </footer>
+      ) : null}
     </Wrapper>
   );
 };

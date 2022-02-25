@@ -5,23 +5,61 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     flex-direction: column;
     width: 100%;
-    border: 1px solid lightblue;
+    border: 1px solid lightgray;
     border-radius: 20px;
     height: 100%;
+    background-color: white;
 
     button {
         border-radius: 0 0 20px 20px;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background-color: black;
+        opacity: 0.9;
     }
 
     img {
         max-height: 250px;
-        object-fit: cover;
+        object-fit: contain;
         border-radius: 20px 20px 0 0;
+        margin-top: 10px;
     }
 
-    div {
-        font-family: Arial, Helvetica, sans-serif;
+    .ItemTexts {
+        font-family: 'Roboto Serif', sans-serif;
         padding: 1rem;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ItemTitle {
+        text-align: center;
+    }
+
+    .ItemTexts p {
+        margin: 0 0 10px 0;
+        text-align: justify;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 7.2rem;
+        line-height: 1.2em;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }
+
+    .ItemTexts p::after {
+        content: "...";
+    }
+
+    .Price {
+        margin-top: auto;
+        margin-bottom: 0;
+        text-align: center;
     }
 `;
