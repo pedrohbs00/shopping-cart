@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
         background-color: black;
         color: white;
         font-weight: bold;
+        position: initial;
     }
 
     button:hover {
@@ -53,7 +54,22 @@ export const Wrapper = styled.div`
         -webkit-box-orient: vertical;
     }
 
-    .ItemTexts p::after {
+    .Rating {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 10px;
+    }
+
+    .RatingDisplay {
+        position: initial;
+    }
+
+    .Rating p {
+        margin: 0;
+    }
+
+    .Description p::after {
         content: "...";
     }
 

@@ -1,4 +1,5 @@
 import Button from "@material-ui/core/Button";
+import Rating from "@mui/material/Rating";
 //Types
 import { CartItemType } from "../App";
 //styles
@@ -14,7 +15,16 @@ const Item: React.FC<Props> = ({ item, handleAddToCart }) => (
     <img src={item.image} alt={item.title} />
     <div className="ItemTexts">
       <h3 className="ItemTitle">{item.title}</h3>
-      <p>{item.description}</p>
+      <div className="Rating">
+        <Rating
+          name="read-only"
+          value={item.rating.rate}
+          readOnly
+          className="RatingDisplay"
+        />
+        <p>{item.rating.count} Avaliations</p>
+      </div>
+      <p className="Description">{item.description}</p>
       <h3 className="Price">${item.price}</h3>
     </div>
     <Button onClick={() => handleAddToCart(item)}>Add to Cart</Button>

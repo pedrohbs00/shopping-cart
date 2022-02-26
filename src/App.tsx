@@ -15,6 +15,7 @@ import {
   ProgressDiv,
   CheckoutDiv,
   Navbar,
+  Welcome,
 } from "./App.styles";
 //Types
 export type CartItemType = {
@@ -25,6 +26,9 @@ export type CartItemType = {
   price: number;
   title: string;
   amount: number;
+  rating: any;
+  rate: number;
+  count: number;
 };
 
 const getProducts = async (): Promise<CartItemType[]> =>
@@ -106,16 +110,24 @@ const App = () => {
         </div>
       </CheckoutDiv>
       <Navbar>
-        <div>
-          <h2>TypeScript Store</h2>
-        </div>
-        <div>
-          <ul>
-            <li>Home</li>
-            <li>Cart</li>
-          </ul>
+        <div className="Header">
+          <div>
+            <h2>TypeScript Store</h2>
+          </div>
+          <div>
+            <ul>
+              <li>Home</li>
+              <li>Category</li>
+              <li>Cart</li>
+            </ul>
+          </div>
         </div>
       </Navbar>
+      <Welcome>
+        <div className="Welcome">
+          <h2>Demo shopping with Typescript using React</h2>
+        </div>
+      </Welcome>
       <Wrapper>
         <Drawer
           anchor="right"

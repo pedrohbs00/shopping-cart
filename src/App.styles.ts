@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
     .ProductsTitle {
         display: flex;
         justify-content: center;
-        margin-top: 60px;
+        margin: 40px 0;
     }
 
     .ProductsTitle h2 {
@@ -26,7 +26,7 @@ export const StyledButton = styled(IconButton)`
     position: fixed !important ;
     z-index: 100;
     right: 20px;
-    top: 15%;
+    top: 20%;
 `;
 
 export const ProgressDiv = styled.div`
@@ -75,15 +75,17 @@ export const CheckoutDiv = styled.div<CheckoutDivProps>`
 
 export const Navbar = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: black;
-    position: fixed;
+    position: sticky;
     top: 0;
-    z-index: 1;
-    padding: 0 40px;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+
+    .Header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 50px;
+    }
 
     h2 {
         color: white;
@@ -93,12 +95,32 @@ export const Navbar = styled.div`
     ul {
         display: flex;
         align-items: center;
+        padding: 0;
     }
 
     li {
         color: white;
         font-family: 'Montserrat', sans-serif;
         list-style: none;
-        
+        margin: 0 20px;
+        font-weight: 500;
     }
+`;
+
+export const Welcome = styled.div`
+
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid lightgrey;
+    margin: 0 40px;
+
+    .Welcome h2{
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
 `;
