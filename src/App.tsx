@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 //Components
 import Item from "./Item/item";
 import Cart from "./Cart/Cart";
+import CategoryMenu from "./Category/Category";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Drawer from "@material-ui/core/Drawer";
 import Grid from "@material-ui/core/Grid";
@@ -16,6 +17,7 @@ import {
   CheckoutDiv,
   Navbar,
   Welcome,
+  CartMenuButton,
 } from "./App.styles";
 //Types
 export type CartItemType = {
@@ -112,13 +114,36 @@ const App = () => {
       <Navbar>
         <div className="Header">
           <div>
-            <h2>TypeScript Store</h2>
+            <h2>
+              <a href="#">TypeScript Store</a>
+            </h2>
+          </div>
+          <div className="images">
+            <img
+              alt="React"
+              src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
+            />
+            <img
+              alt="TypeScript"
+              src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg"
+            />
           </div>
           <div>
             <ul>
-              <li>Home</li>
-              <li>Category</li>
-              <li>Cart</li>
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <CategoryMenu />
+              </li>
+              <li>
+                <CartMenuButton
+                  variant="text"
+                  onClick={() => setCartOpen(true)}
+                >
+                  Cart
+                </CartMenuButton>
+              </li>
             </ul>
           </div>
         </div>

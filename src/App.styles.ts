@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import IconButton from "@material-ui/core/IconButton"
+import Button from '@mui/material/Button';
 
 type CheckoutDivProps = {
     finish: boolean;
@@ -26,7 +27,7 @@ export const StyledButton = styled(IconButton)`
     position: fixed !important ;
     z-index: 100;
     right: 20px;
-    top: 20%;
+    top: 40%;
 `;
 
 export const ProgressDiv = styled.div`
@@ -105,6 +106,22 @@ export const Navbar = styled.div`
         margin: 0 20px;
         font-weight: 500;
     }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .images {
+        display: flex;
+        align-items: center;
+    }
+
+    img {
+        height: 30px;
+        width: 40px;
+        margin: 0 10px;
+    }
 `;
 
 export const Welcome = styled.div`
@@ -123,4 +140,12 @@ export const Welcome = styled.div`
         font-size: 20px;
     }
 
+`;
+
+export const CartMenuButton = styled(Button)`
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 500 !important;
+    color: white !important;
+    text-transform: initial !important;
+    padding: 0 !important;
 `;
