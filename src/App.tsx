@@ -33,14 +33,26 @@ export type CartItemType = {
   count: number;
 };
 
-const getProducts = async (): Promise<CartItemType[]> =>
-  await (await fetch("https://fakestoreapi.com/products")).json();
+export interface ProductsProps {
+  originalProducts: CartItemType[];
+  products: CartItemType[];
+}
+
+const getProducts = async (): Promise<ProductsProps> => {
+  const requisition = await (
+    await fetch("https://fakestoreapi.com/products")
+  ).json();
+  return {
+    originalProducts: requisition,
+    products: requisition,
+  };
+};
 
 const App = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [finishCheckout, setFinishCheckout] = useState(false);
   const [cartItems, setCartItems] = useState([] as CartItemType[]);
-  const { data, isLoading, error } = useQuery<CartItemType[]>(
+  const { data, isLoading, error } = useQuery<ProductsProps>(
     "products",
     getProducts
   );
@@ -176,7 +188,7 @@ const App = () => {
           <h2>Products</h2>
         </div>
         <Grid container spacing={3}>
-          {data?.map((item) => (
+          {data?.products.map((item) => (
             <Grid item key={item.id} xs={12} sm={4}>
               <Item item={item} handleAddToCart={handleAddToCart} />
             </Grid>

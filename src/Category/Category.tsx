@@ -1,7 +1,9 @@
 import * as React from "react";
 import { useState } from "react";
+import { useQuery, useQueryClient } from "react-query";
 import Menu from "@mui/material/Menu";
 import { MenuButton, StyledMenuItem, StyledMenu } from "./Category.styles";
+import { CartItemType, ProductsProps } from "../App";
 
 type Props = {
   category?: string;
@@ -18,9 +20,27 @@ const CategoryMenu: React.FC<Props> = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const queryClient = useQueryClient();
 
   const handleSetCategory = (category: string) => {
     setCategory(category);
+    const currentCategory = queryClient.getQueryData<ProductsProps>("products");
+    console.log(currentCategory);
+    if (category != "all") {
+      const currentProductsCategory = currentCategory?.originalProducts.filter(
+        (item) => item.category == category
+      );
+      queryClient.setQueryData("products", {
+        ...currentCategory,
+        products: currentProductsCategory,
+      });
+      setAnchorEl(null);
+      return;
+    }
+    queryClient.setQueryData("products", {
+      ...currentCategory,
+      products: currentCategory?.originalProducts,
+    });
     setAnchorEl(null);
   };
 
@@ -44,10 +64,13 @@ const CategoryMenu: React.FC<Props> = () => {
           "aria-labelledby": "basic-button",
         }}
       >
-        <StyledMenuItem onClick={() => handleSetCategory("eletronics")}>
+        <StyledMenuItem onClick={() => handleSetCategory("all")}>
+          All
+        </StyledMenuItem>
+        <StyledMenuItem onClick={() => handleSetCategory("electronics")}>
           Eletronics
         </StyledMenuItem>
-        <StyledMenuItem onClick={() => handleSetCategory("jewlery")}>
+        <StyledMenuItem onClick={() => handleSetCategory("jewelery")}>
           Jewlery
         </StyledMenuItem>
         <StyledMenuItem onClick={() => handleSetCategory("men's clothing")}>
