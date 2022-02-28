@@ -51,6 +51,7 @@ const getProducts = async (): Promise<ProductsProps> => {
 const App = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [finishCheckout, setFinishCheckout] = useState(false);
+  const [categoryTitle, setCategoryTitle] = useState("");
   const [cartItems, setCartItems] = useState([] as CartItemType[]);
   const { data, isLoading, error } = useQuery<ProductsProps>(
     "products",
@@ -94,6 +95,10 @@ const App = () => {
     setCartOpen(false);
   };
 
+  const handleCategoryTitle = (category: string) => {
+    setCategoryTitle(category);
+  };
+
   const handleFinishCheckout = () => {
     setFinishCheckout(true);
   };
@@ -127,7 +132,9 @@ const App = () => {
         <div className="Header">
           <div>
             <h2>
-              <a href="#">TypeScript Store</a>
+              <a href="" onClick={() => window.location.reload()}>
+                TypeScript Store
+              </a>
             </h2>
           </div>
           <div className="images">
@@ -143,10 +150,12 @@ const App = () => {
           <div>
             <ul>
               <li>
-                <a href="#">Home</a>
+                <a href="" onClick={() => window.location.reload()}>
+                  Home
+                </a>
               </li>
               <li>
-                <CategoryMenu />
+                <CategoryMenu handleCategoryTitle={handleCategoryTitle} />
               </li>
               <li>
                 <CartMenuButton
@@ -185,7 +194,7 @@ const App = () => {
           </Badge>
         </StyledButton>
         <div className="ProductsTitle">
-          <h2>Products</h2>
+          <h2>{`${categoryTitle != "all" ? categoryTitle : ""} Products`}</h2>
         </div>
         <Grid container spacing={3}>
           {data?.products.map((item) => (

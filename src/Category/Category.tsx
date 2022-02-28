@@ -1,16 +1,16 @@
 import * as React from "react";
 import { useState } from "react";
 import { useQuery, useQueryClient } from "react-query";
-import Menu from "@mui/material/Menu";
 import { MenuButton, StyledMenuItem, StyledMenu } from "./Category.styles";
 import { CartItemType, ProductsProps } from "../App";
 
 type Props = {
   category?: string;
   value?: string;
+  handleCategoryTitle: (arg: string) => void;
 };
 
-const CategoryMenu: React.FC<Props> = () => {
+const CategoryMenu: React.FC<Props> = ({ handleCategoryTitle }) => {
   const [category, setCategory] = useState("");
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -23,6 +23,7 @@ const CategoryMenu: React.FC<Props> = () => {
   const queryClient = useQueryClient();
 
   const handleSetCategory = (category: string) => {
+    handleCategoryTitle(category);
     setCategory(category);
     const currentCategory = queryClient.getQueryData<ProductsProps>("products");
     console.log(currentCategory);

@@ -18,7 +18,8 @@ export const Wrapper = styled.div`
     .ProductsTitle h2 {
         font-size: 30px;
         font-weight: bold;
-        font-family: 'Montserrat', sans-serif;;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: capitalize;
     }
 
 `;
