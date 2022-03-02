@@ -45,6 +45,7 @@ export const CheckoutDiv = styled.div<CheckoutDivProps>`
     top: 0;
     width: 100%;
     height: 100%;
+    z-index: 5;
 
     .AlertBackground {
         display: flex;
@@ -81,6 +82,7 @@ export const Navbar = styled.div`
     background-color: black;
     position: sticky;
     top: 0;
+    z-index: 2;
 
     .Header {
         display: flex;

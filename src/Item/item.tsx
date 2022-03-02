@@ -1,5 +1,5 @@
-import Button from "@material-ui/core/Button";
 import Rating from "@mui/material/Rating";
+import Button from "@material-ui/core/Button";
 //Types
 import { CartItemType } from "../App";
 //styles

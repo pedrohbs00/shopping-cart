@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
         background-color: black;
         color: white;
         font-weight: bold;
-        position: initial;
+        z-index: 0;
     }
 
     button:hover {
