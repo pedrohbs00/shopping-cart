@@ -19,6 +19,7 @@ import {
   Welcome,
   CartMenuButton,
 } from "./App.styles";
+import Footer from "./Footer/Footer";
 //Types
 export type CartItemType = {
   id: number;
@@ -204,6 +205,7 @@ const App = () => {
           ))}
         </Grid>
       </Wrapper>
+      <Footer />
     </>
   );
 };
