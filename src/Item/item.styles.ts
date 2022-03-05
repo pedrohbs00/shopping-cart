@@ -67,6 +67,7 @@ export const Wrapper = styled.div`
 
     .Rating p {
         margin: 0;
+        text-align: center;
     }
 
     .Description p::after {
@@ -77,5 +78,11 @@ export const Wrapper = styled.div`
         margin-top: auto;
         margin-bottom: 0;
         text-align: center;
+    }
+
+    @media (max-width: 900px) {
+        .RatingDisplay {
+            font-size: 1.3rem;
+        }
     }
 `;

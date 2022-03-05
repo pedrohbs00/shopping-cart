@@ -96,7 +96,7 @@ export const Navbar = styled.div`
         font-family: 'Montserrat', sans-serif;
     }
 
-    ul {
+    .Menu {
         display: flex;
         align-items: center;
         padding: 0;
@@ -125,6 +125,63 @@ export const Navbar = styled.div`
         width: 40px;
         margin: 0 10px;
     }
+
+    .threeline-icon {
+        display: none;
+    }
+
+    @media (max-width: 900px) {
+        .images {
+            display: none;
+        }
+
+        .Header {
+            flex-direction: column;
+
+        }
+
+        .threeline-icon {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .MenuDiv {
+            width: 100%;
+        }
+
+        .Menu {
+            justify-content: center;
+        }
+
+        .Menu li {
+            display: none;
+        }
+
+        .Menu li.threeline-icon {
+            display: inline-block;
+        }
+
+        .threeline-icon:hover {
+            cursor: pointer;
+        }
+
+        .MenuResponsive {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .MenuResponsive li {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid white;
+            width: 100%;
+            padding: 10px 0;
+        }
+    }
+
 `;
 
 export const Welcome = styled.div`

@@ -105,6 +105,18 @@ const App = () => {
     setFinishCheckout(true);
   };
 
+  const openNav = () => {
+    const getMenu = document.getElementById("Menu") as HTMLElement;
+    const doc = document.getElementById("threeline-icon") as HTMLElement;
+    if (getMenu.className === "Menu") {
+      getMenu.className += " MenuResponsive";
+      doc.innerHTML = "&Cross;";
+    } else {
+      getMenu.className = "Menu";
+      doc.innerHTML = "&#9776;";
+    }
+  };
+
   useEffect(() => {
     if (finishCheckout) {
       setTimeout(() => {
@@ -149,8 +161,8 @@ const App = () => {
               src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg"
             />
           </div>
-          <div>
-            <ul>
+          <div className="MenuDiv">
+            <ul id="Menu" className="Menu">
               <li>
                 <a href="" onClick={() => window.location.reload()}>
                   Home
@@ -166,6 +178,13 @@ const App = () => {
                 >
                   Cart
                 </CartMenuButton>
+              </li>
+              <li
+                id="threeline-icon"
+                className="threeline-icon"
+                onClick={openNav}
+              >
+                &#9776;
               </li>
             </ul>
           </div>

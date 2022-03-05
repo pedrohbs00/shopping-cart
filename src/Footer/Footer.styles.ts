@@ -41,6 +41,26 @@ export const StyledFooter = styled.div`
     .Links a {
         margin: 10px 10px;
     }
+
+    @media (max-width: 900px) {
+
+        .Links {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 767px) {
+        flex-direction: column-reverse;
+        justify-content: center;
+
+        .ProjectCard {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+    }
 `;
 
 export const GitHub = styled(GitHubIcon)`
